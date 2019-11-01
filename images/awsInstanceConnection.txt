@@ -1,0 +1,1 @@
+ssh -i "temporary.pem" ec2-user@ec2-35-177-229-30.eu-west-2.compute.amazonaws.com
