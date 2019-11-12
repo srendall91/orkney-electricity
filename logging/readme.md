@@ -13,6 +13,9 @@ An example cron file is included.
 
 In this particular case, I have set up a Raspberry pi zerow as a datalogger. It has low power requirements, is small, inobtrusive and very reliable. It is easy to access and control via SSH and SFTP.
 
+It is also possible to operate the data logger on an Amazon Web Services VM EC2 instance.
+![](../images/AWSinstance.png
+
 ## SSEN data logging
 
 ### Generation data
