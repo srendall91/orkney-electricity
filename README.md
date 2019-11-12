@@ -3,7 +3,7 @@
 **Stuart Rendall**  
 University of the Highlands and Islands  
 _MSc Web Techologies research project_    
-May 2019
+October 2019
 
 ## Summary
 
@@ -15,6 +15,12 @@ Logging these data feeds will provide a useful resource for future analysis. Met
 
 It is intended that by combining this data with archived weather records we can gain some insight into the into the systems involved and create a computer model that will be able to forecast electricity usage, generation and curtailment events.
 
-A system to log these data streams has been creaeted and implemented, along with methods to record weather data from the met office data point service - further deatils can be found [here](logging/readme.md)
+[Research Proposal](docs/proposal.md)
 
-The electricity and ANM logs have been combined
+A system to log these data streams has been creaeted and implemented, along with methods to record weather data from the met office data point service - further details can be found [here](logging/readme.md).
+
+The electricity and ANM logs have been checked and duplicates removed [[1](../dataclean/ExamineElectricityReadings.ipynb), [2](../dataclean/ExamineANMReadings.ipynb)] and then combined [[3](../dataclean/combine_datasets.ipynb)].
+
+Some analysis of the logged data has also been performed [[4](../loganalysis/ElecandANManalysis.ipynb)].
+
+Two external web resources have been identified that can provide information relevant to this investigation: Weather records and generation data from a domestic wind turbine.  Further details [here](retrieval/readme.md).

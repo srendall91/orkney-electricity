@@ -1,6 +1,6 @@
 # Online archive data retrieval
 
-Two external web resources have been identified that can provide information relevant to this investigation
+Two external web resources have been identified that can provide information relevant to this investigation.
 
 ## Wind turbine records
 
