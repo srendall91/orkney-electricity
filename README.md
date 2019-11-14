@@ -15,13 +15,15 @@ Logging these data feeds will provide a useful resource for future analysis. Met
 
 It is intended that by combining this data with archived weather records we can gain some insight into the into the systems involved and create a computer model that will be able to forecast electricity usage, generation and curtailment events.
 
-A system to log these data streams has been creaeted and implemented, along with methods to record weather data from the met office data point service - further details can be found [here](./logging/readme.md).
+A system to log these data streams has been creaeted and implemented, along with methods to record weather data from the met office data point service - further details can be found here [link](./logging/readme.md).
 
 The electricity and ANM logs have been checked and duplicates removed [[1](./dataclean/ExamineElectricityReadings.ipynb), [2](./dataclean/ExamineANMReadings.ipynb)] and then combined [[3](./dataclean/combine_datasets.ipynb)].
 
 Some analysis of the logged data has also been performed [[4](./loganalysis/ElecandANManalysis.ipynb)].
 
-Two external web resources have been identified that can provide information relevant to this investigation: Weather records and generation data from a domestic wind turbine.  Further details [here](./retrieval/readme.md).
+Two external web resources have been identified that can provide information relevant to this investigation: Weather records and generation data from a domestic wind turbine. [link](./retrieval/readme.md).
+
+The logged electricity readings have been combined with retrieved historical weather records [link](./ssen_weather_combine/combine_ssen_weather.ipynb)
 
 ## Other information
 
@@ -32,8 +34,7 @@ sqlite has been used to store the data in an SQL data format and perform simple 
 Jupyter Lab has been used throughout this project as an analysis and documentation tool. This repository is the result.
 
 ### Github
-
-Github does not support large files.  As such, the large data files (database .db, comma separated variable .csv and sql dumps) have been omitted from this repository using relevant entries in the `.gitignore` file.
+This repository was created as its previous version [ork-electricity-retired](https://github.com/srendall91/ork-electricity-retired) became corrupt when a numbe rof large datasets had been generated. I discovered that Github does not support large files.  As such, the large data files (database .db, comma separated variable .csv and sql dumps) have been omitted from this repository using relevant entries in the `.gitignore` file.
 
 The logged sqlite data files used can be found here:
 * Electricity log: [eleclog.db](https://comp-server.uhi.ac.uk/~14021635/ssen/finaldataset/eleclog.db)
