@@ -6,6 +6,9 @@ import os
 import time
 import glob
 import urllib.request, json
+import ssl
+
+ssl._create_default_https_context = ssl._create_unverified_context
 
 # global variables
 dbname='/home/pi/ssen/database/eleclog.db'

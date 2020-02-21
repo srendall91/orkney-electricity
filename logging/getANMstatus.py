@@ -1,10 +1,15 @@
 #!/usr/bin/env python3
 
 import urllib.request, json
+import logging
 import sqlite3
 from bs4 import BeautifulSoup
+
+
 import re
-import logging
+import ssl
+
+ssl._create_default_https_context = ssl._create_unverified_context
 
 def getIconValue(s):
     result = re.search('glyphicon-(.*)-sign', str(s))
@@ -17,10 +22,12 @@ def getZoneNumber(s):
     else:
         return 'Core'
 
+
 # global variables
+logging.basicConfig(filename='/home/pi/ssen/database/ANMstatus.log',format='%(asctime)s %(message)s',level=logging.DEBUG)
+
 dbname='/home/pi/ssen/database/anmlog.db'
 STATUS_URL ='https://www.ssen.co.uk/ANMGeneration/'
-logging.basicConfig(filename='/home/pi/ssen/database/ANMstatus.log',format='%(asctime)s %(message)s',level=logging.DEBUG)
 
 def get_data():
     with urllib.request.urlopen(STATUS_URL) as url:
@@ -30,6 +37,7 @@ def get_data():
         AMNTable = soup.find('div', {'class': 'Widget-Base Widget-ANMStatus'})
 
         AMNrows = AMNTable.find_all('tr')
+
         
 
         AMN={}
@@ -42,10 +50,17 @@ def get_data():
                    getIconValue(AMNdata[2]),
                    getIconValue(AMNdata[3])
                    )
+            #row['zone']=AMNdata[0].get_text().strip()
+            #row['operation']= getIconValue(AMNdata[1])
+            #row['equipment']= getIconValue(AMNdata[2])
+            #row['site']= getIconValue(AMNdata[3])
             AMN[key]=data
 
         return(AMN)
 
+
+
+#SELECT * FROM tablename ORDER BY column DESC LIMIT 1;
 
 # store the data in the database
 def log_data(readings):
@@ -58,6 +73,7 @@ def log_data(readings):
 
     # commit the changes
     conn.commit()
+
     conn.close()
 
 def get_last_written_record():
@@ -69,14 +85,15 @@ def get_last_written_record():
 
     # commit the changes
     conn.commit()
+
     conn.close()
     return rec
 
 
 cur_readings = json.dumps(get_data(), sort_keys=True)
 last_readings = get_last_written_record()[0]
-#print(cur_readings)
-#print(last_readings)
+print(cur_readings)
+print(last_readings)
 if (cur_readings!=last_readings):
     log_data(cur_readings)
     logging.info("ANM state changed - data stored")

@@ -112,3 +112,18 @@ By use of a logfile it was discovered that forecasts are revised and updated eve
 The python script `getKirkwallForecast.py` is run using 'cron' every hour, retrieving this forecast data and storing it in an sqlite3 database.
 
 To avoid recording uneccessary data, the whole dataset is stored in the sqlite3 database as a json string alongside a timestamp. It is unclear whether this is a particularly good approach as, whilst it minimises the volume of stored data, it will involve much post-processing in order to merge with other datasets.
+
+## 2020-02-21 update
+
+It was discovered that the data logger stopped reading data 2020-02-19 12:30:10,503 .
+this was due to an error associated with the security certificate on the SSEN webservice.
+
+this has been obviated by ignoring the security certificate using the following snippet:
+``` python
+import ssl
+ssl._create_default_https_context = ssl._create_unverified_context
+```
+sourced from:https://stackoverflow.com/questions/35569042/ssl-certificate-verify-failed-with-python3
+
+started recording again:
+2020-02-21 21:52:12,074 ANM state changed - data stored
