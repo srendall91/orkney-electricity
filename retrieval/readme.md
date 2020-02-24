@@ -16,6 +16,6 @@ Explanation of the data structure and the methods used to retrieve the informati
 
 Initially, a python script `vackerWeather.py` was written to retrieve historical readings from Weatherhq and log it to an sqlite3 database.  
 
-Subsequently, a Jupyter notebook [VackerWeatherLog.ipynb](./VackerWeatherLog.ipynb) detailing the methods involved and the associated problems to be overcome produced the complete set of data required.
+Subsequently, a Jupyter notebook [VackerWeatherLog.ipynb](./VackerWeatherLog.ipynb) detailing the methods involved and the associated problems to be overcome to produce the complete set of data required.
 
 The weather records retrieved from the Vackertvader web service proved not to have been recorded at uniform time intervals.  Thus the data has been interpolated (additional datapoints added between the actual records) to correct this. [InterpolateWeatherData.ipynb](./InterpolateWeatherData.ipynb)
