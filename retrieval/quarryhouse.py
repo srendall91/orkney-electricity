@@ -25,13 +25,14 @@ def textToFloat(string):
     else:
         return 0.0
     
-def datestamp(enddate, datestring):
-    prevdate = enddate - datetime.timedelta(days=1)
-    nextdate = enddate + datetime.timedelta(days=1)
-    returndate = enddate
+def datestamp(inputDate, datestring):
+    prevdate = inputDate - datetime.timedelta(days=1)
+    nextdate = inputDate + datetime.timedelta(days=1)
     
     if (int(datestring)== prevdate.date().day): returndate=prevdate
-    if (int(datestring)== nextdate.date().day): returndate=nextdate
+    elif (int(datestring)== nextdate.date().day): returndate=nextdate
+    else: returndate = inputDate
+        
     return returndate
     
 
