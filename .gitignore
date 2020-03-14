@@ -6,3 +6,7 @@
 */*.log
 *.csv
 */*.csv
+.Rhistory
+*/.Rhistory
+.R
+*/*.R
